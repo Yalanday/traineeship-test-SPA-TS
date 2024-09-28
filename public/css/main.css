@@ -1,0 +1,102 @@
+:root {
+    --text-color: #fff;
+    --text-color-active: #ffe800;
+    --text-color-good: #7bc549;
+    --text-color-average: #e49a27;
+    --text-color-poor: red;
+
+    --outline-color: #31353f;
+
+    --horizontal-gap: 20px;
+    --vertical-gap: 28px;
+
+    --font: 'Open Sans', 'Arial', sans-serif;
+    --font-size: 18px;
+    --font-size-smaller: 14px;
+    --font-size-bigger: 20px;
+}
+
+* {
+    user-select: none
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('../fonts/OpenSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url('../fonts/OpenSans-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url('../fonts/OpenSans-ExtraBold.woff2') format('woff2');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--text-color);
+    font-size: var(--font-size);
+    font-family: var(--font);
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+body {
+    box-sizing: border-box;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.body-overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: 0;
+    display: none;
+
+}
+
+.body-overlay.active {
+    position: fixed;
+    display: block;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+a:link {
+    opacity: 1;
+    text-decoration: none;
+    transition: opacity 0.1s ease-in;
+}
+
