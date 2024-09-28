@@ -36,11 +36,9 @@ function getWeatherData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const position = getCity();
-            console.log(position);
             const API_URL_OW = `https://api.openweathermap.org/data/2.5/weather?lat=${defaultCity.latitude}&lon=${defaultCity.longitude}&appid=${API_KEY_OW}&units=metric`;
             const response = yield fetch(API_URL_OW);
             const dataWeather = yield response.json();
-            console.log(dataWeather.main.temp);
             return dataWeather;
         }
         catch (error) {
@@ -52,7 +50,6 @@ function getWeatherData() {
 function setWeatherData(element, cityElement, iconElement) {
     return __awaiter(this, void 0, void 0, function* () {
         const dataWeather = yield getWeatherData();
-        console.log(dataWeather);
         try {
             element.textContent = String(dataWeather.main.temp).slice(0, 2);
             dataWeather.name === 'Krasnodar' ? cityElement.textContent = 'Краснодар' : cityElement.textContent = dataWeather.name;

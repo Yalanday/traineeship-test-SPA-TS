@@ -33,11 +33,9 @@ function getCoordinates() {
 async function getWeatherData() {
     try {
         const position: CityType = getCity();
-        console.log(position)
         const API_URL_OW = `https://api.openweathermap.org/data/2.5/weather?lat=${defaultCity.latitude}&lon=${defaultCity.longitude}&appid=${API_KEY_OW}&units=metric`;
         const response = await fetch(API_URL_OW);
         const dataWeather = await response.json();
-        console.log(dataWeather.main.temp)
 
         return dataWeather
     } catch (error) {
@@ -48,7 +46,6 @@ async function getWeatherData() {
 
 export async function setWeatherData(element: HTMLElement, cityElement: HTMLElement, iconElement: HTMLElement) {
     const dataWeather = await getWeatherData();
-    console.log(dataWeather)
     try {
         element.textContent = String(dataWeather.main.temp).slice(0, 2);
         dataWeather.name === 'Krasnodar' ? cityElement.textContent = 'Краснодар' : cityElement.textContent = dataWeather.name;
